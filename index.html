@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andi Saputra - Portfolio | Clerk Administrator & UI/UX Designer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            600: '#1e3a8a',
+                            800: '#0f2942',
+                            900: '#0b192c',
+                            DEFAULT: '#0f2942'
+                        },
+                        gold: {
+                            100: '#fef3c7',
+                            400: '#fbbf24',
+                            500: '#d4af37',
+                            600: '#b8860b',
+                            700: '#a16207',
+                            DEFAULT: '#d4af37'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #b8860b 0%, #d4af37 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .navy-gradient-bg {
+            background: linear-gradient(135deg, #0b192c 0%, #0f2942 100%);
+        }
+        .gold-border-glow:hover {
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.25);
+            border-color: #d4af37;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-body antialiased selection:bg-gold-500 selection:text-white">
+
+    <!-- Sticky Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header border-b border-slate-200/80 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl navy-gradient-bg flex items-center justify-center text-gold-500 font-bold text-xl shadow-md border border-gold-500/30 group-hover:scale-105 transition-transform">
+                    AS
+                </div>
+                <div>
+                    <span class="text-lg font-bold text-navy-900 block leading-tight tracking-tight">ANDI SAPUTRA</span>
+                    <span class="text-xs font-semibold text-gold-600 block tracking-wide">Clerk Admin & UI/UX</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+                <a href="#about" class="hover:text-gold-600 transition-colors py-2">Tentang Saya</a>
+                <a href="#experience" class="hover:text-gold-600 transition-colors py-2">Pengalaman & Proyek</a>
+                <a href="#documentation" class="hover:text-gold-600 transition-colors py-2">Dokumentasi Kerja</a>
+                <a href="#skills" class="hover:text-gold-600 transition-colors py-2">Keterampilan</a>
+                <a href="#education" class="hover:text-gold-600 transition-colors py-2">Pendidikan</a>
+                <a href="#contact" class="hover:text-gold-600 transition-colors py-2">Kontak</a>
+            </nav>
+
+            <!-- CTA Button Header -->
+            <div class="hidden md:flex items-center space-x-3">
+                <a href="#contact" class="navy-gradient-bg text-white hover:bg-gold-600 text-sm font-semibold px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg hover:border-gold-500 border border-transparent transition-all flex items-center gap-2">
+                    <i class="fa-regular me-1 fa-paper-plane text-gold-400"></i> Hubungi Saya
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-700 hover:text-navy-900 focus:outline-none" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 transition-all">
+            <a href="#about" class="mobile-nav-link block text-slate-700 font-medium hover:text-gold-600 py-1">Tentang Saya</a>
+            <a href="#experience" class="mobile-nav-link block text-slate-700 font-medium hover:text-gold-600 py-1">Pengalaman & Proyek</a>
+            <a href="#documentation" class="mobile-nav-link block text-slate-700 font-medium hover:text-gold-600 py-1">Dokumentasi Kerja</a>
+            <a href="#skills" class="mobile-nav-link block text-slate-700 font-medium hover:text-gold-600 py-1">Keterampilan</a>
+            <a href="#education" class="mobile-nav-link block text-slate-700 font-medium hover:text-gold-600 py-1">Pendidikan</a>
+            <a href="#contact" class="mobile-nav-link block text-slate-700 font-medium hover:text-gold-600 py-1">Kontak</a>
+            <div class="pt-2">
+                <a href="#contact" class="mobile-nav-link block w-full text-center navy-gradient-bg text-white font-semibold py-2.5 rounded-lg">Hubungi Saya</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-b from-slate-100 via-slate-50 to-white relative overflow-hidden">
+        <!-- Background elements -->
+        <div class="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gold-500/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+        <div class="absolute top-40 -right-20 w-80 h-80 bg-navy-600/5 rounded-full blur-2xl -z-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Column -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <!-- Status Badge -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-gold-500/30 text-gold-700 text-xs sm:text-sm font-semibold shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
+                        S1 Sistem Informasi &bull; Finalist UI/UX Track Batch 4
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight">
+                        Menghubungkan <span class="gold-gradient-text">Ketelitian Administrasi</span> & Inovasi Design System
+                    </h1>
+
+                    <!-- Description -->
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Halo! Saya <strong class="text-navy-900 font-semibold">Andi Saputra</strong>, lulusan Sistem Informasi Universitas Jember (IPK 3.47). Berpengalaman sebagai <span class="text-navy-900 font-medium">Clerk Administrator</span> di industri pembiayaan (FIFGROUP) dan praktisi <span class="text-gold-700 font-medium">UI/UX Design</span> yang berorientasi pada ketelitian data, efisiensi operasional, dan desain antarmuka intuitif.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#experience" class="w-full sm:w-auto navy-gradient-bg text-white font-semibold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-gold-500/20 hover:border-gold-500 border border-transparent transition-all flex items-center justify-center gap-2">
+                            <span>Jelajahi Pengalaman</span>
+                            <i class="fa-solid fa-arrow-right text-xs text-gold-400"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto bg-white text-navy-900 hover:bg-slate-100 font-semibold px-7 py-3.5 rounded-xl border border-slate-300 shadow-sm transition-all flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-envelope text-gold-600"></i>
+                            <span>Hubungi Langsung</span>
+                        </a>
+                    </div>
+
+                    <!-- Highlights Strip -->
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-slate-200/80 max-w-lg mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl font-extrabold text-navy-900">3.47<span class="text-sm font-medium text-slate-500">/4.00</span></p>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">IPK S1 Sistem Informasi</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl font-extrabold text-gold-600">100%</p>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">Akurasi Data Inventaris</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl font-extrabold text-navy-900">Finalis</p>
+                            <p class="text-xs text-slate-500 font-medium mt-0.5">Startup Campus Batch 4</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Column: Formal Profile Image (1000144827.jpg) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative max-w-sm w-full">
+                        <!-- Backdrop Glow -->
+                        <div class="absolute -inset-1.5 navy-gradient-bg rounded-3xl blur opacity-30"></div>
+                        
+                        <div class="relative bg-white rounded-2xl p-4 shadow-xl border border-slate-200">
+                            <!-- Image Frame -->
+                            <div class="relative rounded-xl overflow-hidden bg-slate-100 aspect-[3/4]">
+                                <img src="1000144827.jpg" 
+                                     alt="Foto Resmi Andi Saputra, S.SI" 
+                                     onerror="this.onerror=null; this.src='Andi Saputra-Resume CV.jpg';"
+                                     class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                                
+                                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-transparent p-4 text-white">
+                                    <p class="font-bold text-lg leading-snug">Andi Saputra, S.SI</p>
+                                    <p class="text-xs text-gold-400 font-medium">Clerk Administrator & UI/UX Specialist</p>
+                                </div>
+                            </div>
+
+                            <!-- Floating Badge 1 -->
+                            <div class="absolute -bottom-5 -left-5 bg-white p-3 rounded-xl shadow-lg border border-slate-200 flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center text-gold-600 font-bold text-lg">
+                                    <i class="fa-solid fa-boxes-stacked"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 font-medium">Bidang Kerja</p>
+                                    <p class="text-xs font-bold text-navy-900">Administrasi & Inventaris</p>
+                                </div>
+                            </div>
+
+                            <!-- Floating Badge 2 -->
+                            <div class="absolute -top-4 -right-4 bg-navy-900 text-white p-3 rounded-xl shadow-lg border border-gold-500/30 flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-gold-500/20 flex items-center justify-center text-gold-400">
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                </div>
+                                <div class="pr-2">
+                                    <p class="text-[10px] text-slate-300">Design System</p>
+                                    <p class="text-xs font-bold text-gold-400">UI/UX Figma Design</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-semibold text-sm uppercase tracking-wider">Mengenal Lebih Dekat</span>
+                <h2 class="text-3xl font-extrabold text-navy-900 mt-2">Tentang Saya</h2>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+                <!-- Left Narrative Card -->
+                <div class="md:col-span-7 bg-slate-50 p-8 rounded-2xl border border-slate-200 flex flex-col justify-between shadow-sm">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-3 h-3 rounded-full bg-gold-500"></span>
+                            <h3 class="text-xl font-bold text-navy-900">Ringkasan Profesional</h3>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">
+                            Saya adalah lulusan <strong class="text-navy-900">Sistem Informasi dari Universitas Jember</strong> dengan latar belakang pengalaman praktis sebagai <strong class="text-navy-900">Clerk Administrator</strong> di industri pembiayaan (PT Federal International Finance / FIFGROUP). Terbiasa mengelola dokumen operasional, pencatatan repossession unit, stock opname inventaris, serta penyusunan laporan berkala secara akurat dan tepat waktu.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed">
+                            Di samping kemampuan administratif yang disiplin, saya memiliki passion dan keahlian teruji di bidang <strong class="text-gold-700">UI/UX Design & System Architecture</strong>. Berhasil menjadi finalis pada program MSIB Startup Campus Batch 4 dengan menerapkan kerangka kerja <em>Design Thinking</em>, riset pengguna, wireframing, dan prototyping interaktif di Figma.
+                        </p>
+                    </div>
+
+                    <!-- Core Value Pillars -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 mt-6 border-t border-slate-200">
+                        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80">
+                            <i class="fa-solid fa-bullseye text-gold-600 text-lg mb-1"></i>
+                            <p class="font-bold text-navy-900 text-sm">Berorientasi Detail</p>
+                            <p class="text-xs text-slate-500 mt-0.5">Akurasi data 100% pada sistem & laporan</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80">
+                            <i class="fa-solid fa-list-check text-navy-600 text-lg mb-1"></i>
+                            <p class="font-bold text-navy-900 text-sm">Disiplin Operasional</p>
+                            <p class="text-xs text-slate-500 mt-0.5">Manajemen waktu & koordinasi tim lapangan</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80">
+                            <i class="fa-solid fa-user-gear text-gold-600 text-lg mb-1"></i>
+                            <p class="font-bold text-navy-900 text-sm">User-Centered</p>
+                            <p class="text-xs text-slate-500 mt-0.5">Desain antarmuka intuitif & terstruktur</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Quick Info Card -->
+                <div class="md:col-span-5 navy-gradient-bg text-white p-8 rounded-2xl shadow-xl flex flex-col justify-between border border-navy-800 relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-gold-500/10 rounded-full blur-xl pointer-events-none"></div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-6 flex items-center justify-between">
+                            <span>Informasi Bio</span>
+                            <i class="fa-solid fa-id-card text-gold-400"></i>
+                        </h3>
+
+                        <ul class="space-y-4 text-sm text-slate-300">
+                            <li class="flex items-start gap-3 pb-3 border-b border-slate-700/60">
+                                <i class="fa-solid fa-graduation-cap text-gold-400 mt-1"></i>
+                                <div>
+                                    <span class="block text-xs text-slate-400">Pendidikan Terakhir</span>
+                                    <span class="font-medium text-white">S1 Sistem Informasi - Universitas Jember</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 pb-3 border-b border-slate-700/60">
+                                <i class="fa-solid fa-briefcase text-gold-400 mt-1"></i>
+                                <div>
+                                    <span class="block text-xs text-slate-400">Pengalaman Kerja Terakhir</span>
+                                    <span class="font-medium text-white">Clerk Administrator @ PT FIFGROUP</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 pb-3 border-b border-slate-700/60">
+                                <i class="fa-solid fa-location-dot text-gold-400 mt-1"></i>
+                                <div>
+                                    <span class="block text-xs text-slate-400">Domisili</span>
+                                    <span class="font-medium text-white">Kab. Blitar & Jember, Jawa Timur</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-envelope text-gold-400 mt-1"></i>
+                                <div>
+                                    <span class="block text-xs text-slate-400">Email Utama</span>
+                                    <a href="mailto:aodank29@gmail.com" class="font-medium text-gold-400 hover:underline">aodank29@gmail.com</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 pt-4 border-t border-slate-700/60 flex items-center justify-between">
+                        <span class="text-xs text-slate-400">Terbuka untuk Peluang Kerja</span>
+                        <span class="text-xs font-bold text-gold-400 bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/30">Available</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Experience & Projects Section -->
+    <section id="experience" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-gold-600 font-semibold text-sm uppercase tracking-wider">Rekam Jejak & Karya</span>
+                <h2 class="text-3xl font-extrabold text-navy-900 mt-2">Pengalaman Kerja & Proyek</h2>
+                <p class="text-slate-600 mt-2">Kombinasi pengalaman operasional nyata di lapangan dan perancangan produk digital.</p>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <!-- Experience Filter Tabs -->
+            <div class="flex justify-center mb-10">
+                <div class="bg-white p-1 rounded-xl border border-slate-200 shadow-sm inline-flex gap-1">
+                    <button onclick="filterExperience('all')" id="btn-all" class="exp-tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg bg-navy-900 text-white transition-all">Semua</button>
+                    <button onclick="filterExperience('work')" id="btn-work" class="exp-tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg text-slate-600 hover:text-navy-900 transition-all">Pengalaman Kerja</button>
+                    <button onclick="filterExperience('uiux')" id="btn-uiux" class="exp-tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg text-slate-600 hover:text-navy-900 transition-all">UI/UX & Proyek</button>
+                </div>
+            </div>
+
+            <!-- Grid Cards Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Card 1: FIFGROUP (Work Experience with image) -->
+                <div class="exp-card work bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm gold-border-glow transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-navy-900 border border-blue-200 mb-2">
+                                    <i class="fa-solid fa-building me-1 text-gold-600"></i> Pekerjaan Penuh Waktu
+                                </span>
+                                <h3 class="text-xl font-bold text-navy-900">Clerk Administrator</h3>
+                                <p class="text-sm font-semibold text-gold-600">PT Federal International Finance (FIFGROUP) &bull; Jember</p>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg whitespace-nowrap">
+                                Mar 2025 - Feb 2026
+                            </span>
+                        </div>
+
+                        <!-- Image Preview thumbnail from real documentation -->
+                        <div class="mb-4 rounded-xl overflow-hidden h-44 bg-slate-100 border border-slate-200 relative group">
+                            <img src="1000144794.jpg" 
+                                 alt="Andi Saputra bekerja dengan sistem komputer di kantor FIFGROUP" 
+                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-navy-900/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <a href="#documentation" class="bg-white text-navy-900 text-xs font-bold px-3 py-1.5 rounded-lg shadow">
+                                    <i class="fa-regular fa-image me-1"></i> Lihat Dokumentasi Lengkap
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Key Responsibilities Checklist -->
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600 mb-6">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500 text-sm mt-0.5 shrink-0"></i>
+                                <span>Mengelola unit <strong>repossession (tarikan)</strong>, pencatatan dokumen resmi, penempatan ulang, serta mengawasi lelang motor untuk mengoptimalkan penjualan.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500 text-sm mt-0.5 shrink-0"></i>
+                                <span>Melakukan <strong>stock opname</strong> berkala dan memastikan tingkat akurasi data inventaris hingga 100% pada sistem manajemen internal.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500 text-sm mt-0.5 shrink-0"></i>
+                                <span>Menyusun laporan komprehensif mencakup <em>end stock</em>, rata-rata LOR, NFWO, serta <em>check loss</em> aksesoris, berkoordinasi langsung dengan tim lapangan.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech & Skill Badges Footer -->
+                    <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-2">
+                        <span class="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Manajemen Inventaris</span>
+                        <span class="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Stock Opname</span>
+                        <span class="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Pelaporan LOR & NFWO</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Startup Campus (Internship & UI/UX) -->
+                <div class="exp-card uiux bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm gold-border-glow transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-gold-700 border border-gold-300 mb-2">
+                                    <i class="fa-solid fa-trophy me-1 text-gold-600"></i> Student Intern (Finalist)
+                                </span>
+                                <h3 class="text-xl font-bold text-navy-900">Student Intern - UI/UX Track</h3>
+                                <p class="text-sm font-semibold text-gold-600">Startup Campus (Achmad Zaky Foundation) &bull; Jakarta</p>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg whitespace-nowrap">
+                                Feb 2023 - Jun 2023
+                            </span>
+                        </div>
+
+                        <p class="text-xs text-slate-500 mb-4 italic">
+                            Yayasan yang didirikan oleh Achmad Zaky (Founder Bukalapak) dalam program MSIB Kemendikbudristek Batch 4.
+                        </p>
+
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600 mb-6">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500 text-sm mt-0.5 shrink-0"></i>
+                                <span>Merancang arsitektur UI/UX proyek akhir tim menggunakan <strong>Figma</strong>, meliputi user research, wireframing, hingga high-fidelity prototype.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500 text-sm mt-0.5 shrink-0"></i>
+                                <span>Menerapkan kerangka kerja <strong>Design Thinking</strong> (Empathize, Define, Ideate, Prototype, Test) untuk produk antarmuka intuitif.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500 text-sm mt-0.5 shrink-0"></i>
+                                <span>Berhasil meraih predikat <strong>Finalist pada Final Project Showcase</strong> Startup Campus Batch 4 dari ratusan peserta nasional.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-2">
+                        <span class="text-[11px] font-semibold bg-amber-50 text-gold-700 px-2.5 py-1 rounded-md border border-gold-200">Figma Prototype</span>
+                        <span class="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Design Thinking</span>
+                        <span class="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Finalist Showcase</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Proyek Portofolio UI/UX -->
+                <div class="exp-card uiux bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm gold-border-glow transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 mb-2">
+                                    <i class="fa-solid fa-laptop-code me-1"></i> Featured Project
+                                </span>
+                                <h3 class="text-xl font-bold text-navy-900">UI/UX Showcase & System Prototype</h3>
+                                <p class="text-sm font-semibold text-gold-600">MSIB Kemendikbud Showcase</p>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg">
+                                Juni 2023
+                            </span>
+                        </div>
+
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                            Mendesain solusi digital aplikasi dengan integrasi antarmuka intuitif, design system yang konsisten, komponen terstruktur, serta pengujian usability kepada target pengguna.
+                        </p>
+
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 mb-4 space-y-1.5">
+                            <p class="text-xs font-bold text-navy-900"><i class="fa-solid fa-check text-gold-600 me-1"></i> Output & Hasil Pembelajaran:</p>
+                            <p class="text-xs text-slate-600">&bull; User Flow, Information Architecture & Interactive Figma Prototype</p>
+                            <p class="text-xs text-slate-600">&bull; Membuktikan kemampuan analitis desain sistem digital berstandar industri</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-2">
+                        <span class="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">UI Design</span>
+                        <span class="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Usability Testing</span>
+                        <span class="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Wireframing</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Organization (UKM Al Azhar UNEJ) -->
+                <div class="exp-card work bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm gold-border-glow transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between gap-4 mb-4">
+                            <div>
+                                <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 mb-2">
+                                    <i class="fa-solid fa-users me-1"></i> Pengalaman Organisasi
+                                </span>
+                                <h3 class="text-xl font-bold text-navy-900">Anggota Organisasi</h3>
+                                <p class="text-sm font-semibold text-gold-600">UKM KI Al-Azhar &bull; Fakultas Ilmu Komputer UNEJ</p>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg">
+                                Kampus UNEJ
+                            </span>
+                        </div>
+
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                            Aktif dalam kegiatan kerohanian Islam dan pengembangan soft skill kepemimpinan, kerja sama tim, serta koordinasi acara di lingkungan Fakultas Ilmu Komputer, Universitas Jember.
+                        </p>
+
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 mb-4">
+                            <p class="text-xs text-slate-600 font-medium">
+                                <i class="fa-solid fa-star text-gold-500 me-1"></i> Mengasah kemampuan komunikasi publik, dinamika kelompok, serta manajemen kegiatan secara bertanggung jawab.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-2">
+                        <span class="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Kepemimpinan</span>
+                        <span class="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Kerja Sama Tim</span>
+                        <span class="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Event Management</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Work Documentation Photo Gallery -->
+    <section id="documentation" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-semibold text-sm uppercase tracking-wider">Aktivitas Real di Lapangan</span>
+                <h2 class="text-3xl font-extrabold text-navy-900 mt-2">Dokumentasi Kerja Operasional</h2>
+                <p class="text-slate-600 mt-2">Bukti visual kolaborasi tim, pengelolaan sistem, dan aktivitas harian di PT FIFGROUP.</p>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Photo Card 1: Computer / Office Administration (1000144794.jpg) -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-md group hover:border-gold-500 transition-all">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-slate-200">
+                        <img src="1000144794.jpg" 
+                             alt="Andi Saputra saat melakukan entry data dan review laporan pada sistem komputer bersama rekan kerja di PT FIFGROUP" 
+                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-navy-900/90 text-gold-400 font-bold text-xs px-3 py-1 rounded-full border border-gold-500/30">
+                            <i class="fa-solid fa-desktop me-1"></i> Operasional Sistem & Komputer
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-navy-900 text-lg mb-2">Pencatatan Data & Evaluasi Operasional Sistem</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Proses pengelolaan dan pengecekan berkala data inventaris unit pada sistem internal kantor PT FIFGROUP bersama rekan tim, memastikan akurasi laporan 100%.
+                        </p>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+                            <span><i class="fa-solid fa-location-dot text-gold-600 me-1"></i> PT FIFGROUP Jember</span>
+                            <span class="font-semibold text-navy-900">Sistem & Laporan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo Card 2: Teamwork & Target Board (1000144791.jpg) -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-md group hover:border-gold-500 transition-all">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-slate-200">
+                        <img src="1000144791.jpg" 
+                             alt="Andi Saputra dan tim operasional FIFGROUP di depan papan pemantauan target LKP / COLL" 
+                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-navy-900/90 text-gold-400 font-bold text-xs px-3 py-1 rounded-full border border-gold-500/30">
+                            <i class="fa-solid fa-users text-gold-400 me-1"></i> Kolaborasi Tim & Target Board
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-navy-900 text-lg mb-2">Pemantauan Target & Kerjasama Tim Lapangan</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Foto bersama tim operasional di depan papan kontrol target harian (One Dream One Team - FIFGROUP) saat pemantauan progress pencapaian unit repossession dan lelang.
+                        </p>
+                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+                            <span><i class="fa-solid fa-people-group text-gold-600 me-1"></i> One Dream One Team</span>
+                            <span class="font-semibold text-navy-900">Stock Opname & Target</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-50 border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-semibold text-sm uppercase tracking-wider">Kompetensi Utama</span>
+                <h2 class="text-3xl font-extrabold text-navy-900 mt-2">Keterampilan & Toolset</h2>
+                <p class="text-slate-600 mt-2">Kumpulan keahlian teknis operasional administrasi dan perancangan desain antarmuka digital.</p>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Category 1: Clerk & Operational Administration -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl navy-gradient-bg flex items-center justify-center text-gold-400 text-xl font-bold shadow-md">
+                            <i class="fa-solid fa-file-signature"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-navy-900 text-lg">Administrasi & Operasional</h3>
+                            <p class="text-xs text-slate-500">Akurasi & Pengelolaan Data</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-sm font-semibold text-slate-700"><i class="fa-solid fa-check text-gold-600 me-2"></i>Stock Opname & Inventaris</span>
+                            <span class="text-xs font-bold text-gold-700 bg-amber-50 px-2 py-0.5 rounded">Ahli</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-sm font-semibold text-slate-700"><i class="fa-solid fa-check text-gold-600 me-2"></i>Unit Repossession / Tarikan</span>
+                            <span class="text-xs font-bold text-gold-700 bg-amber-50 px-2 py-0.5 rounded">Praktis</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-sm font-semibold text-slate-700"><i class="fa-solid fa-check text-gold-600 me-2"></i>Pelaporan LOR, NFWO & End Stock</span>
+                            <span class="text-xs font-bold text-gold-700 bg-amber-50 px-2 py-0.5 rounded">Sistematis</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-sm font-semibold text-slate-700"><i class="fa-solid fa-check text-gold-600 me-2"></i>Verifikasi Dokumen & Lelang</span>
+                            <span class="text-xs font-bold text-gold-700 bg-amber-50 px-2 py-0.5 rounded">Teliti</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: UI/UX Design & System Design -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gold-500 flex items-center justify-center text-navy-900 text-xl font-bold shadow-md">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-navy-900 text-lg">UI/UX & Product Design</h3>
+                            <p class="text-xs text-slate-500">Design System & User Centered</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-sm font-semibold text-slate-700"><i class="fa-brands fa-figma text-gold-600 me-2"></i>Figma Prototyping</span>
+                            <span class="text-xs font-bold text-navy-900 bg-blue-50 px-2 py-0.5 rounded">Lanjutan</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-sm font-semibold text-slate-700"><i class="fa-solid fa-lightbulb text-gold-600 me-2"></i>Design Thinking Process</span>
+                            <span class="text-xs font-bold text-navy-900 bg-blue-50 px-2 py-0.5 rounded">Teruji</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-sm font-semibold text-slate-700"><i class="fa-solid fa-magnifying-glass text-gold-600 me-2"></i>User Research & Wireframing</span>
+                            <span class="text-xs font-bold text-navy-900 bg-blue-50 px-2 py-0.5 rounded">Handal</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-sm font-semibold text-slate-700"><i class="fa-solid fa-vial text-gold-600 me-2"></i>Usability Testing Showcase</span>
+                            <span class="text-xs font-bold text-navy-900 bg-blue-50 px-2 py-0.5 rounded">Finalis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Tech Tools & Soft Skills -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl navy-gradient-bg flex items-center justify-center text-gold-400 text-xl font-bold shadow-md">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-navy-900 text-lg">Sistem & Soft Skills</h3>
+                            <p class="text-xs text-slate-500">Teknologi & Etos Kerja</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-sm font-semibold text-slate-700"><i class="fa-solid fa-database text-gold-600 me-2"></i>Sistem Informasi Manajemen</span>
+                            <span class="text-xs font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">S1 UNEJ</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-sm font-semibold text-slate-700"><i class="fa-solid fa-code text-gold-600 me-2"></i>WxPython & Data Science</span>
+                            <span class="text-xs font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">Sertifikat</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-sm font-semibold text-slate-700"><i class="fa-solid fa-users text-gold-600 me-2"></i>Kolaborasi Tim & Komunikasi</span>
+                            <span class="text-xs font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">Aktif</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                            <span class="text-sm font-semibold text-slate-700"><i class="fa-solid fa-clock text-gold-600 me-2"></i>Ketepatan Waktu & Disiplin</span>
+                            <span class="text-xs font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">Tinggi</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Training & Achievement Badges Bar -->
+            <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 text-white shadow-lg border border-gold-500/20">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-400 shrink-0 border border-gold-500/40">
+                            <i class="fa-solid fa-certificate text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-base text-white">Pelatihan & Webinar Tersertifikasi</h4>
+                            <p class="text-xs text-slate-300">Pengembangan skill berkelanjutan dalam bidang pemrograman & riset data.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-xs bg-navy-800/80 border border-slate-600 px-3 py-1.5 rounded-lg text-slate-200">
+                            <i class="fa-solid fa-award text-gold-400 me-1"></i> Pelatihan Wxpython (Fasilkom UNEJ)
+                        </span>
+                        <span class="text-xs bg-navy-800/80 border border-slate-600 px-3 py-1.5 rounded-lg text-slate-200">
+                            <i class="fa-solid fa-chart-line text-gold-400 me-1"></i> Social Research using Data Science (Shift Academy)
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-semibold text-sm uppercase tracking-wider">Latar Belakang</span>
+                <h2 class="text-3xl font-extrabold text-navy-900 mt-2">Jenjang Pendidikan</h2>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-md relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-gold-500"></div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                        <div>
+                            <span class="text-xs font-bold text-gold-700 bg-amber-50 border border-gold-200 px-3 py-1 rounded-full">Bachelor Degree (S1)</span>
+                            <h3 class="text-2xl font-bold text-navy-900 mt-2">Universitas Jember</h3>
+                            <p class="text-sm font-semibold text-slate-600">Bachelor of Sistem Informasi &bull; Jember, Jawa Timur</p>
+                        </div>
+
+                        <div class="sm:text-right bg-white p-3 rounded-xl border border-slate-200">
+                            <span class="text-xs text-slate-500 block">Indeks Prestasi Kumulatif</span>
+                            <span class="text-2xl font-extrabold text-navy-900">3.47 <span class="text-xs font-normal text-slate-500">/ 4.00</span></span>
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                        Menyelesaikan studi dengan konsentrasi Sistem Informasi Manajemen, analisis data operasional, perancangan basis data, serta antarmuka perangkat lunak berorientasi pengguna.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-200">
+                        <span class="text-xs font-medium text-slate-600 bg-white px-3 py-1 rounded-md border border-slate-200">Sistem Informasi Manajemen</span>
+                        <span class="text-xs font-medium text-slate-600 bg-white px-3 py-1 rounded-md border border-slate-200">Analisis Rekayasa Perangkat Lunak</span>
+                        <span class="text-xs font-medium text-slate-600 bg-white px-3 py-1 rounded-md border border-slate-200">Manajemen Basis Data</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-semibold text-sm uppercase tracking-wider">Mari Terhubung</span>
+                <h2 class="text-3xl font-extrabold text-navy-900 mt-2">Hubungi Saya</h2>
+                <p class="text-slate-600 mt-2">Apakah Anda membutuhkan Clerk Administrator yang teliti atau UI/UX Designer untuk proyek Anda?</p>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                
+                <!-- Contact Info Cards -->
+                <div class="lg:col-span-5 space-y-4">
+                    
+                    <!-- Phone Card -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 flex items-center gap-4 hover:border-gold-500 transition-all shadow-sm">
+                        <div class="w-12 h-12 rounded-xl navy-gradient-bg flex items-center justify-center text-gold-400 text-xl shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="text-xs text-slate-500 font-medium">Telepon / WhatsApp</p>
+                            <a href="https://wa.me/6281803361328" target="_blank" class="text-base font-bold text-navy-900 hover:text-gold-600 transition-colors block truncate">
+                                081803361328
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Email Card -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 flex items-center gap-4 hover:border-gold-500 transition-all shadow-sm">
+                        <div class="w-12 h-12 rounded-xl navy-gradient-bg flex items-center justify-center text-gold-400 text-xl shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="text-xs text-slate-500 font-medium">Alamat Email</p>
+                            <a href="mailto:aodank29@gmail.com" class="text-base font-bold text-navy-900 hover:text-gold-600 transition-colors block truncate">
+                                aodank29@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Card -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 flex items-center gap-4 hover:border-gold-500 transition-all shadow-sm">
+                        <div class="w-12 h-12 rounded-xl navy-gradient-bg flex items-center justify-center text-gold-400 text-xl shrink-0">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="text-xs text-slate-500 font-medium">Profil LinkedIn</p>
+                            <a href="https://www.linkedin.com/in/andisaputra19/" target="_blank" class="text-base font-bold text-navy-900 hover:text-gold-600 transition-colors block truncate">
+                                linkedin.com/in/andisaputra19
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Address Card -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 flex items-center gap-4 hover:border-gold-500 transition-all shadow-sm">
+                        <div class="w-12 h-12 rounded-xl navy-gradient-bg flex items-center justify-center text-gold-400 text-xl shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-medium">Alamat Rumah</p>
+                            <p class="text-xs font-semibold text-navy-900 leading-snug">
+                                Perum Pondok Delta, Block B.66 RT 3 RW 7, Kel. Kaweron, Kec. Talun, Kab. Blitar
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Interactive Contact Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">Kirim Pesan Langsung</h3>
+                        <p class="text-xs text-slate-500 mb-6">Isi formulir di bawah ini untuk memulai percakapan kerja sama.</p>
+
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="name" class="block text-xs font-bold text-navy-900 mb-1">Nama Lengkap *</label>
+                                    <input type="text" id="name" required placeholder="Nama Anda" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent text-sm bg-slate-50">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-xs font-bold text-navy-900 mb-1">Alamat Email *</label>
+                                    <input type="email" id="email" required placeholder="email@domain.com" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent text-sm bg-slate-50">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="subject" class="block text-xs font-bold text-navy-900 mb-1">Subjek / Perihal</label>
+                                <input type="text" id="subject" placeholder="Peluang Kerja / Proyek UI/UX / Diskusi" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent text-sm bg-slate-50">
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-xs font-bold text-navy-900 mb-1">Pesan Anda *</label>
+                                <textarea id="message" rows="4" required placeholder="Tuliskan pesan Anda di sini..." class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent text-sm bg-slate-50 resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full navy-gradient-bg text-white font-bold py-3 px-6 rounded-xl shadow-md hover:shadow-lg hover:border-gold-500 border border-transparent transition-all flex items-center justify-center gap-2">
+                                <i class="fa-regular fa-paper-plane text-gold-400"></i>
+                                <span>Kirim Pesan Sekarang</span>
+                            </button>
+                        </form>
+
+                        <!-- Success Alert Message -->
+                        <div id="form-success" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs sm:text-sm flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-lg"></i>
+                            <div>
+                                <p class="font-bold">Pesan Berhasil Terkirim!</p>
+                                <p>Terima kasih telah menghubungi. Andi Saputra akan merespons pesan Anda secepatnya.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="navy-gradient-bg text-slate-300 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <!-- Left Info -->
+                <div class="text-center md:text-left">
+                    <span class="text-lg font-bold text-white tracking-tight">ANDI SAPUTRA</span>
+                    <p class="text-xs text-slate-400 mt-1">Sistem Informasi &bull; Clerk Administrator &bull; UI/UX Designer</p>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.linkedin.com/in/andisaputra19/" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-gold-500 hover:text-navy-900 transition-all flex items-center justify-center text-slate-300">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:aodank29@gmail.com" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-gold-500 hover:text-navy-900 transition-all flex items-center justify-center text-slate-300">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/6281803361328" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-gold-500 hover:text-navy-900 transition-all flex items-center justify-center text-slate-300">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+
+                <!-- Back to top -->
+                <a href="#hero" class="text-xs text-gold-400 hover:text-gold-300 font-semibold flex items-center gap-2 bg-slate-800/80 px-4 py-2 rounded-lg border border-slate-700">
+                    <span>Kembali ke Atas</span>
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
+                &copy; 2026 Andi Saputra. Portofolio Profesional. Didesain dengan presisi dan kepedulian UI/UX.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactivity JavaScript -->
+    <script>
+        // Mobile Navigation Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        // Close mobile drawer when clicking navigation links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Experience Category Filtering Function
+        function filterExperience(category) {
+            const cards = document.querySelectorAll('.exp-card');
+            const buttons = document.querySelectorAll('.exp-tab-btn');
+
+            // Reset tab button states
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-navy-900', 'text-white');
+                btn.classList.add('text-slate-600');
+            });
+
+            // Highlight selected button
+            const activeBtn = document.getElementById('btn-' + category);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-navy-900', 'text-white');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            // Show/Hide Experience Cards
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                } else if (card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Contact Form Submission Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const successMsg = document.getElementById('form-success');
+
+            // Display success alert box smoothly
+            successMsg.classList.remove('hidden');
+            form.reset();
+
+            // Auto hide success toast after 6 seconds
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
